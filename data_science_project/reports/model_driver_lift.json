@@ -1,0 +1,24 @@
+{
+  "churn_model": {
+    "baseline_auc": 0.516975683012765,
+    "driver_auc": 0.5372762003779159,
+    "baseline_accuracy": 0.74625,
+    "driver_accuracy": 0.74625,
+    "auc_lift": 0.020300517365150927,
+    "accuracy_lift": 0.0
+  },
+  "spend_model": {
+    "baseline_r2": 0.9051902116912107,
+    "driver_r2": 0.9054875271769636,
+    "baseline_mae": 5.170122390103563,
+    "driver_mae": 5.158007416617776,
+    "r2_lift": 0.00029731548575284705,
+    "mae_delta": -0.012114973485786606
+  },
+  "rows_used": 20000,
+  "features_engineered": [
+    "support_intensity",
+    "province_churn_rate",
+    "has_app (binary)"
+  ]
+}

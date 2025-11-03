@@ -1,0 +1,12 @@
+# Insights Deck ? Telecom Subscriber EDA
+
+1. **Premium plan shows the most leakage despite being the power-user tier.** Customers on Premium churn at **28.2%** versus ~25% for other tiers while driving the highest data consumption (13.7?GB vs ~9?GB). *Figure:* `reports/figures/bar_churn_by_plan.png`
+2. **Mobile app adoption is the strongest retention lever.** Subscribers without the app churn at **33.7%**, a full 10.7?pts higher than app users (**23.0%**). *Figure:* `reports/figures/bar_churn_by_app.png`
+3. **High-touch support journeys correlate with attrition.** Customers logging ?0.5 tickets per month churn at **34.2%**, compared with **25.2%** for low-touch segments. *Figure:* `reports/figures/bar_churn_by_support.png`
+4. **Card rails bring in the richest revenue.** Credit and debit card customers average **$30.6?$30.4** in monthly revenue versus **$29.8** for cash and **$29.6** for the unspecified cohort. *Figure:* `reports/figures/bar_revenue_by_payment.png`
+5. **Billing feeds predictive spend almost one-to-one.** Current monthly charges correlate **0.95** with forecast next-month spend, signaling strong ARPU momentum that can fuel upsell modeling. *Figure:* `reports/figures/correlation_heatmap.png`
+6. **Churned customers are about to downgrade their wallets.** Forecast spend for churners drops to **$30.5** versus **$36.7** for retained accounts, even though churners historically paid slightly more each month. *Figure:* `reports/figures/box_next_spend_by_churn.png`
+7. **Manicaland and Mashonaland Central require hotspot retention plays.** Churn tops **26%** in these provinces versus **24.2%** in Mashonaland West, with dense clusters around the northern latitudes. *Figure:* `reports/figures/spatial_province_bubble.png`
+8. **Mid-2025 saw simultaneous churn spikes and spend dips.** July 2025 churn touched **27.8%** while next-month spend sagged near **$34**, before rebounding alongside churn moderation. *Figure:* `reports/figures/temporal_churn_spend.png`
+9. **Newer cohorts are wealthier but far less tenured.** 2024 signups average **$7.17k** income yet only **11.3** tenure months versus ~18 months for earlier cohorts, hinting at onboarding gaps. *Figure:* `reports/figures/temporal_signup_income_tenure.png`
+10. **Revenue drivers are heavily right-skewed.** Monthly charges exhibit skew **1.05** with a normality p-value <0.001, confirming heavy tails that merit robust scaling before modeling. *Figure:* `reports/figures/distribution_monthly_charges.png`
