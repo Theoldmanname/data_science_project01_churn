@@ -18,6 +18,9 @@ if (ROOT / "data_science_project").exists():
 DATA_PATH = ROOT / "data" / "processed" / "clean_dataset.csv"
 SEGMENTED_PATH = ROOT / "data" / "processed" / "segmented.csv"
 SEGMENT_SUMMARY_PATH = ROOT / "reports" / "segment_summary.csv"
+REPO_URL = "https://github.com/Theoldmanname/data_science_project01_churn"
+REPO_SUBDIR = "data_science_project"
+REPO_BRANCH = "master"
 
 # Provide more helpful error messages
 if not DATA_PATH.exists():
@@ -205,19 +208,31 @@ def section_segments(segmented: pd.DataFrame, summary: pd.DataFrame) -> None:
 
 def section_resources() -> None:
     st.subheader("Reports & Downloads")
-    repo_url = st.secrets.get("repo_url", "https://github.com/your-username/your-repo")
+    blob_base = f"{REPO_URL}/blob/{REPO_BRANCH}/{REPO_SUBDIR}"
+    raw_base = (
+        "https://raw.githubusercontent.com/"
+        f"Theoldmanname/data_science_project01_churn/{REPO_BRANCH}/{REPO_SUBDIR}"
+    )
+    html_preview = (
+        "https://htmlpreview.github.io/?"
+        f"{raw_base}/reports/eda_report.html"
+    )
+
     st.markdown(
         f"""
-        - [Insight Summary PDF]({repo_url}/blob/main/reports/insight_summary.pdf?raw=1)
-        - [EDA Profiling Report]({repo_url}/blob/main/reports/eda_report.html?raw=1)
-        - [Segment Summary CSV]({repo_url}/blob/main/reports/segment_summary.csv?raw=1)
-        - [Segmented Dataset]({repo_url}/blob/main/data/processed/segmented.csv?raw=1)
+        - [Insight Summary PDF]({raw_base}/reports/insight_summary.pdf)
+        - [EDA Profiling Report (download)]({raw_base}/reports/eda_report.html) | [View online]({html_preview})
+        - [Segment Summary CSV]({raw_base}/reports/segment_summary.csv)
+        - [Segmented Dataset]({raw_base}/data/processed/segmented.csv)
+        - [GitHub Repository]({REPO_URL})
         """
     )
 
     with st.expander("Preview EDA report inline"):
         try:
-            eda_html = (ROOT / "reports" / "eda_report.html").read_text(encoding="utf-8")
+            eda_html = (ROOT / "reports" / "eda_report.html").read_text(
+                encoding="utf-8"
+            )
             st_html(eda_html, height=600, scrolling=True)
         except FileNotFoundError:
             st.info("EDA report not found locally. Ensure `reports/eda_report.html` exists.")

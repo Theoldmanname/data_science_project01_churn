@@ -1,32 +1,33 @@
 # From Raw Data to Insight - A Full-Stack Data Science Exploration
 
-> **Fast Links**   
-> -  **Live Dashboard**: https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app   
-> -  **Insight Summary PDF**: [`reports/insight_summary.pdf`](reports/insight_summary.pdf)  
-> -  **LinkedIn Article**: https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*  
-> -  **Segmented Dataset**: [`data/processed/segmented.csv`](data/processed/segmented.csv)  
-> - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/https://github.com/Theoldmanname/data_science_project01_churn/tree/master/data_science_project/HEAD?labpath=notebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/https://github.com/Theoldmanname/data_science_project01_churn/tree/master/data_science_project/blob/main/notebooks/03_eda_descriptive.ipynb)
+> **Fast Links**
+> - **Live Dashboard:** https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app
+> - **Insight Summary PDF:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/reports/insight_summary.pdf
+> - **LinkedIn Article:** https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*
+> - **Segmented Dataset:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/data/processed/segmented.csv
+> - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Theoldmanname/data_science_project01_churn/HEAD?labpath=data_science_project%2Fnotebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/03_eda_descriptive.ipynb)
 
 ## Problem Context
 Zimbabwean telecom operator facing multi-faceted churn risk across digital and support channels. Goal: audit data assets, understand churn drivers, segment the base, and deliver an actionable retention playbook.
 
 ## Data Sources
-- `data/raw/training_master_dataset.csv` â€“ 20k subscriber-level records (demographics, billing, usage, sentiment, credit posture, churn flags).
-- Derived processed assets in `data/processed/` (cleaned dataset, propensity scores, clustering labels, pilot targets).
+- `data/raw/training_master_dataset.csv` – 20k subscriber-level records (demographics, billing, usage, sentiment, credit posture, churn flags).
+- Processed assets in `data/processed/` (cleaned dataset, propensity scores, clustering labels, pilot targets).
 
 ## What Was Done
-1. **Phase 1â€“2** â€“ Structuring repo, data card, Pandera contract, ydata-profiling audit.  
-2. **Phase 3** â€“ Cleaning, imputation, feature engineering, consistency checks.  
-3. **Phase 4â€“5** â€“ Exploratory analysis, statistical inference (chi-square, ANOVA, correlation CIs).  
-4. **Phase 6** â€“ Propensity scoring, clustering personas, retention segmentation.  
-5. **Phase 7â€“8** â€“ Plotly dashboard, executive PDF, LinkedIn-ready story, recommendations.  
-6. **Phase 9** â€“ Reproducibility polish (requirements, validation notebook, README update).
+1. **Phase 1-2** – Repo scaffolding, data card, Pandera contract, profiling.
+2. **Phase 3** – Cleaning, imputation, consistency checks, feature engineering.
+3. **Phase 4-5** – Exploratory analysis, statistical testing (chi-square, ANOVA, correlations).
+4. **Phase 6** – Propensity scoring, clustering personas, retention segmentation.
+5. **Phase 7-8** – Plotly dashboard, executive PDF, LinkedIn-ready story, recommendations.
+6. **Phase 9** – Reproducibility polish (requirements, validation notebook, README update).
 
 ## Main Insights
-- App adoption slashes churn (33.7% â†’ 23.0%); support-heavy cohorts churn ~50% more.
+- App adoption cuts churn from 33.7% to 23.0%; support-heavy cohorts churn ~50% more.
 - 5.5k customers fall into high-risk retention segments combining support load and low app usage.
-- Premium Data Power Users (19%) deliver the highest ARPU/spend ($70+ next-month) yet remain moderate churn riskâ€”protect with concierge incentives.
-- Matabeleland North & Manicaland provinces show hotspot churn requiring localized action.
+- Premium Data Power Users (19%) deliver the highest ARPU/spend ($70+ next month) yet remain moderate churn risk—protect with concierge incentives.
+- Matabeleland North & Manicaland show hotspot churn requiring localized action.
+
 
 ## Repository Structure
 ```
