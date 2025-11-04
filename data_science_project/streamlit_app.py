@@ -196,9 +196,10 @@ def section_support_churn(filtered: pd.DataFrame) -> None:
         st.info("Support information unavailable for the selected filters.")
         return
 
+    upper_bound = max(1.51, float(max_support) + 0.01)
     support_bins = pd.cut(
         filtered["support_tickets_per_month"],
-        bins=[-0.01, 0.2, 0.5, 1.5, max_support + 0.01],
+        bins=[-0.01, 0.2, 0.5, 1.5, upper_bound],
         labels=["0-0.2", "0.2-0.5", "0.5-1.5", ">1.5"],
     )
     support_churn = (
