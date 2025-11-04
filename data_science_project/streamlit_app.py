@@ -10,9 +10,18 @@ import plotly.graph_objects as go
 import streamlit as st
 
 ROOT = Path(__file__).resolve().parent
+# Handle both local and deployed paths
+if (ROOT / "data_science_project").exists():
+    # We're in the deployed environment
+    ROOT = ROOT / "data_science_project"
+
 DATA_PATH = ROOT / "data" / "processed" / "clean_dataset.csv"
 SEGMENTED_PATH = ROOT / "data" / "processed" / "segmented.csv"
 SEGMENT_SUMMARY_PATH = ROOT / "reports" / "segment_summary.csv"
+
+# Provide more helpful error messages
+if not DATA_PATH.exists():
+    raise FileNotFoundError(f"Required data file not found at {DATA_PATH}. Please ensure the processed data files are generated.")
 
 
 @st.cache_data(show_spinner=False)
