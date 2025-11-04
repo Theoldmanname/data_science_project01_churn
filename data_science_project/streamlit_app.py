@@ -213,10 +213,7 @@ def section_resources() -> None:
         "https://raw.githubusercontent.com/"
         f"Theoldmanname/data_science_project01_churn/{REPO_BRANCH}/{REPO_SUBDIR}"
     )
-    html_preview = (
-        "https://htmlpreview.github.io/?"
-        f"{raw_base}/reports/eda_report.html"
-    )
+    html_preview = "https://Theoldmanname.github.io/data_science_project01_churn/eda_report.html"
 
     st.markdown(
         f"""

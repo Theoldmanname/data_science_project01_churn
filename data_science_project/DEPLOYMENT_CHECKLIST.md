@@ -29,17 +29,23 @@ Use this guide to publish the case study so recruiters can explore the code, das
 - **Binder (optional):** Update the badge link with your GitHub coordinates so viewers can run notebooks in the cloud.
 - **Alternative:** Enable GitHub Codespaces or provide JupyterLite if desired.
 
-## 4. Publish LinkedIn Article
+## 4. GitHub Pages (Project Hub)
+1. Create a `docs/` folder at repo root (already included in this project).
+2. Ensure `docs/index.html` (landing page) and `docs/eda_report.html` are present; they link to the Streamlit app, PDF, and raw EDA report.
+3. In **Settings → Pages**, choose branch `master` and folder `/docs`, then save.
+4. After GitHub Pages publishes (https://<username>.github.io/<repo>/), update README and Streamlit links if necessary.
+
+## 5. Publish LinkedIn Article
 1. Open `reports/linkedin_article.md`, copy the content to LinkedIn article editor.
 2. Embed key figures (`reports/figures/...`) as images (upload screenshots to LinkedIn).
 3. Link back to the GitHub repo and Streamlit dashboard.
 4. Share the article link in README Fast Links and across your social channels.
 
-## 5. Highlight Downloads
+## 6. Highlight Downloads
 - Ensure `reports/insight_summary.pdf` and `data/processed/segmented.csv` remain in the repo.
 - Mention them in the README “Fast Links” for easy recruiter access.
 
-## 6. Optional Enhancements
+## 7. Optional Enhancements
 - Create a short Loom/YouTube walkthrough of the dashboard and add the link to README.
 - Build a Canva/Google Slides deck summarizing the case study for interviews.
 - Stand up a GitHub Pages or Notion landing page summarizing the project with CTAs to the repo, dashboard, and article.

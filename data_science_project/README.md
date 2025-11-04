@@ -1,7 +1,8 @@
-# From Raw Data to Insight - A Full-Stack Data Science Exploration
+ï»¿# From Raw Data to Insight - A Full-Stack Data Science Exploration
 
 > **Fast Links**
 > - **Live Dashboard:** https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app
+> - **Project Hub (GitHub Pages):** https://Theoldmanname.github.io/data_science_project01_churn/
 > - **Insight Summary PDF:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/reports/insight_summary.pdf
 > - **LinkedIn Article:** https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*
 > - **Segmented Dataset:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/data/processed/segmented.csv
@@ -11,21 +12,21 @@
 Zimbabwean telecom operator facing multi-faceted churn risk across digital and support channels. Goal: audit data assets, understand churn drivers, segment the base, and deliver an actionable retention playbook.
 
 ## Data Sources
-- `data/raw/training_master_dataset.csv` – 20k subscriber-level records (demographics, billing, usage, sentiment, credit posture, churn flags).
+- `data/raw/training_master_dataset.csv` â€“ 20k subscriber-level records (demographics, billing, usage, sentiment, credit posture, churn flags).
 - Processed assets in `data/processed/` (cleaned dataset, propensity scores, clustering labels, pilot targets).
 
 ## What Was Done
-1. **Phase 1-2** – Repo scaffolding, data card, Pandera contract, profiling.
-2. **Phase 3** – Cleaning, imputation, consistency checks, feature engineering.
-3. **Phase 4-5** – Exploratory analysis, statistical testing (chi-square, ANOVA, correlations).
-4. **Phase 6** – Propensity scoring, clustering personas, retention segmentation.
-5. **Phase 7-8** – Plotly dashboard, executive PDF, LinkedIn-ready story, recommendations.
-6. **Phase 9** – Reproducibility polish (requirements, validation notebook, README update).
+1. **Phase 1-2** â€“ Repo scaffolding, data card, Pandera contract, profiling.
+2. **Phase 3** â€“ Cleaning, imputation, consistency checks, feature engineering.
+3. **Phase 4-5** â€“ Exploratory analysis, statistical testing (chi-square, ANOVA, correlations).
+4. **Phase 6** â€“ Propensity scoring, clustering personas, retention segmentation.
+5. **Phase 7-8** â€“ Plotly dashboard, executive PDF, LinkedIn-ready story, recommendations.
+6. **Phase 9** â€“ Reproducibility polish (requirements, validation notebook, README update).
 
 ## Main Insights
 - App adoption cuts churn from 33.7% to 23.0%; support-heavy cohorts churn ~50% more.
 - 5.5k customers fall into high-risk retention segments combining support load and low app usage.
-- Premium Data Power Users (19%) deliver the highest ARPU/spend ($70+ next month) yet remain moderate churn risk—protect with concierge incentives.
+- Premium Data Power Users (19%) deliver the highest ARPU/spend ($70+ next month) yet remain moderate churn riskâ€”protect with concierge incentives.
 - Matabeleland North & Manicaland show hotspot churn requiring localized action.
 
 
@@ -65,6 +66,6 @@ data_science_project/
 ## How to Reproduce
 1. `python -m venv .venv && .venv\\Scripts\\activate` (Windows) or `source .venv/bin/activate`.  
 2. `pip install -r requirements.txt`.  
-3. Execute notebooks in order (`01` â†’ `06`) or run scripts in `src/` for automation (`python src/pipelines/preprocessing.py`).  
+3. Execute notebooks in order (`01` Ã¢â€ â€™ `06`) or run scripts in `src/` for automation (`python src/pipelines/preprocessing.py`).  
 4. For clustering/retention scores run `python src/models/driver_experiments.py` and the segmentation notebook.  
 5. Review final assets: dashboard notebook, `reports/insight_summary.pdf`, and `reports/linkedin_article.md`.
