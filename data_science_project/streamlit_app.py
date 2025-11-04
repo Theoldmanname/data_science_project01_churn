@@ -204,7 +204,7 @@ def section_support_churn(filtered: pd.DataFrame) -> None:
     )
     support_churn = (
         filtered.assign(support_segment=support_bins)
-        .groupby("support_segment")["churned"]
+        .groupby("support_segment", observed=False)["churned"]
         .mean()
         .mul(100)
         .reindex(["0-0.2", "0.2-0.5", "0.5-1.5", ">1.5"])
@@ -286,6 +286,7 @@ def section_geo_churn(filtered: pd.DataFrame) -> None:
         .dropna(subset=["lat", "lng"])
         .reset_index()
     )
+    province_summary["churn_rate_pct"] = province_summary["churn_rate"] * 100
     if province_summary.empty:
         st.info("Geographic information unavailable for the selected filters.")
         return
