@@ -1,11 +1,11 @@
 # From Raw Data to Insight - A Full-Stack Data Science Exploration
 
-> **Fast Links** *(replace `your-username/your-repo` and LinkedIn URL once published)*  
-> - 📊 **Live Dashboard**: https://data-science-case-study.streamlit.app *(Streamlit Cloud URL once deployed)*  
-> - 📄 **Insight Summary PDF**: [`reports/insight_summary.pdf`](reports/insight_summary.pdf)  
-> - ✍️ **LinkedIn Article**: https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*  
-> - 📁 **Segmented Dataset**: [`data/processed/segmented.csv`](data/processed/segmented.csv)  
-> - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/your-username/your-repo/HEAD?labpath=notebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/your-username/your-repo/blob/main/notebooks/03_eda_descriptive.ipynb)
+> **Fast Links**   
+> -  **Live Dashboard**: https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app   
+> -  **Insight Summary PDF**: [`reports/insight_summary.pdf`](reports/insight_summary.pdf)  
+> -  **LinkedIn Article**: https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*  
+> -  **Segmented Dataset**: [`data/processed/segmented.csv`](data/processed/segmented.csv)  
+> - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/https://github.com/Theoldmanname/data_science_project01_churn/tree/master/data_science_project/HEAD?labpath=notebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/https://github.com/Theoldmanname/data_science_project01_churn/tree/master/data_science_project/blob/main/notebooks/03_eda_descriptive.ipynb)
 
 ## Problem Context
 Zimbabwean telecom operator facing multi-faceted churn risk across digital and support channels. Goal: audit data assets, understand churn drivers, segment the base, and deliver an actionable retention playbook.

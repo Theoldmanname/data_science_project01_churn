@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+from pathlib import Path
+from streamlit.components.v1 import html as st_html
 
 ROOT = Path(__file__).resolve().parent
 # Handle both local and deployed paths
@@ -203,6 +203,26 @@ def section_segments(segmented: pd.DataFrame, summary: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def section_resources() -> None:
+    st.subheader("Reports & Downloads")
+    repo_url = st.secrets.get("repo_url", "https://github.com/your-username/your-repo")
+    st.markdown(
+        f"""
+        - [Insight Summary PDF]({repo_url}/blob/main/reports/insight_summary.pdf?raw=1)
+        - [EDA Profiling Report]({repo_url}/blob/main/reports/eda_report.html?raw=1)
+        - [Segment Summary CSV]({repo_url}/blob/main/reports/segment_summary.csv?raw=1)
+        - [Segmented Dataset]({repo_url}/blob/main/data/processed/segmented.csv?raw=1)
+        """
+    )
+
+    with st.expander("Preview EDA report inline"):
+        try:
+            eda_html = (ROOT / "reports" / "eda_report.html").read_text(encoding="utf-8")
+            st_html(eda_html, height=600, scrolling=True)
+        except FileNotFoundError:
+            st.info("EDA report not found locally. Ensure `reports/eda_report.html` exists.")
+
+
 def main() -> None:
     clean, segmented, summary = load_data()
     layout_header(clean)
@@ -214,6 +234,7 @@ def main() -> None:
     section_trends(filtered, title_suffix)
     section_plan_app(filtered)
     section_segments(segmented, summary)
+    section_resources()
 
     st.markdown("---")
     st.markdown(
