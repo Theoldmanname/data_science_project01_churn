@@ -54,6 +54,29 @@ def layout_header(clean: pd.DataFrame) -> None:
     col4.metric("Avg Next-Month Spend", f"$ {next_month_spend:.2f}")
 
 
+def section_kpi_table(clean: pd.DataFrame) -> None:
+    st.subheader("Portfolio Snapshot")
+    metrics = {
+        "Total Customers": f"{len(clean):,}",
+        "Churn Rate": f"{clean['churned'].mean() * 100:.1f}%",
+        "App Adoption": f"{clean['has_app'].mean() * 100:.1f}%",
+        "High Support Load (>=0.5 tickets/mo)": f"{(clean['support_tickets_per_month'] >= 0.5).mean() * 100:.1f}%",
+        "Average Monthly Revenue": f"$ {clean['avg_monthly_revenue'].mean():.2f}",
+        "Next-Month Spend Forecast": f"$ {clean['next_month_spend'].mean():.2f}",
+    }
+    table_df = pd.DataFrame(list(metrics.items()), columns=["KPI", "Value"])
+    fig = go.Figure(
+        data=[
+            go.Table(
+                header=dict(values=["KPI", "Value"], fill_color="#0d6efd", font=dict(color="white"), align="left"),
+                cells=dict(values=[table_df["KPI"], table_df["Value"]], fill_color="#f8f9fa", align="left"),
+            )
+        ]
+    )
+    fig.update_layout(margin=dict(l=0, r=0, t=10, b=0), height=250)
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def section_filters(clean: pd.DataFrame) -> pd.DataFrame:
     st.sidebar.header("Filters")
     plan = st.sidebar.multiselect(
@@ -159,7 +182,46 @@ def section_plan_app(filtered: pd.DataFrame) -> None:
             color=app_churn.index,
         )
         fig.update_layout(showlegend=False, margin=dict(l=10, r=10, t=40, b=10))
-        st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True)
+
+
+def section_support_churn(filtered: pd.DataFrame) -> None:
+    st.subheader("Support Load vs Churn")
+    if filtered.empty:
+        st.info("No data available for the current filter selection.")
+        return
+
+    max_support = filtered["support_tickets_per_month"].max()
+    if pd.isna(max_support):
+        st.info("Support information unavailable for the selected filters.")
+        return
+
+    support_bins = pd.cut(
+        filtered["support_tickets_per_month"],
+        bins=[-0.01, 0.2, 0.5, 1.5, max_support + 0.01],
+        labels=["0-0.2", "0.2-0.5", "0.5-1.5", ">1.5"],
+    )
+    support_churn = (
+        filtered.assign(support_segment=support_bins)
+        .groupby("support_segment")["churned"]
+        .mean()
+        .mul(100)
+        .reindex(["0-0.2", "0.2-0.5", "0.5-1.5", ">1.5"])
+        .dropna()
+    )
+    if support_churn.empty:
+        st.info("No support ticket data available for charting.")
+        return
+
+    fig = px.bar(
+        support_churn,
+        labels={"index": "Support tickets per month", "value": "Churn rate (%)"},
+        text_auto=".1f",
+        color=support_churn.values,
+        color_continuous_scale="magma",
+    )
+    fig.update_layout(showlegend=False, margin=dict(l=10, r=10, t=40, b=10))
+    st.plotly_chart(fig, use_container_width=True)
 
 
 def section_segments(segmented: pd.DataFrame, summary: pd.DataFrame) -> None:
@@ -206,9 +268,51 @@ def section_segments(segmented: pd.DataFrame, summary: pd.DataFrame) -> None:
     st.plotly_chart(fig, use_container_width=True)
 
 
+def section_geo_churn(filtered: pd.DataFrame) -> None:
+    st.subheader("Provincial Churn Hotspots")
+    if filtered.empty:
+        st.info("No data available for the current filter selection.")
+        return
+
+    province_summary = (
+        filtered.groupby("province")
+        .agg(
+            customers=("customer_id", "count"),
+            churn_rate=("churned", "mean"),
+            lat=("lat", "mean"),
+            lng=("lng", "mean"),
+        )
+        .dropna(subset=["lat", "lng"])
+        .reset_index()
+    )
+    if province_summary.empty:
+        st.info("Geographic information unavailable for the selected filters.")
+        return
+
+    fig = px.scatter_geo(
+        province_summary,
+        lat="lat",
+        lon="lng",
+        size="customers",
+        size_max=30,
+        color=province_summary["churn_rate"] * 100,
+        hover_name="province",
+        hover_data={
+            "customers": True,
+            "churn_rate": lambda x: [f"{v*100:.1f}%" for v in x],
+        },
+        color_continuous_scale="Viridis",
+        projection="natural earth",
+    )
+    fig.update_layout(
+        title="Customer footprint — bubble size reflects customer count, color reflects churn rate",
+        margin=dict(l=0, r=0, t=50, b=0),
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+
 def section_resources() -> None:
     st.subheader("Reports & Downloads")
-    blob_base = f"{REPO_URL}/blob/{REPO_BRANCH}/{REPO_SUBDIR}"
     pages_base = "https://Theoldmanname.github.io/data_science_project01_churn"
 
     st.markdown(
@@ -234,6 +338,7 @@ def section_resources() -> None:
 def main() -> None:
     clean, segmented, summary = load_data()
     layout_header(clean)
+    section_kpi_table(clean)
     filtered = section_filters(clean)
 
     title_suffix = ""
@@ -241,6 +346,8 @@ def main() -> None:
         title_suffix = f"(Filtered sample: {len(filtered):,} customers)"
     section_trends(filtered, title_suffix)
     section_plan_app(filtered)
+    section_support_churn(filtered)
+    section_geo_churn(filtered)
     section_segments(segmented, summary)
     section_resources()
 
