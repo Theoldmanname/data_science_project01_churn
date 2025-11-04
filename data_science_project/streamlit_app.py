@@ -296,11 +296,11 @@ def section_geo_churn(filtered: pd.DataFrame) -> None:
         lon="lng",
         size="customers",
         size_max=30,
-        color=province_summary["churn_rate"] * 100,
+        color="churn_rate_pct",
         hover_name="province",
         hover_data={
             "customers": True,
-            "churn_rate": lambda x: [f"{v*100:.1f}%" for v in x],
+            "churn_rate_pct": True,
         },
         color_continuous_scale="Viridis",
         projection="natural earth",
