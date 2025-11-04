@@ -55,7 +55,7 @@ def layout_header(clean: pd.DataFrame) -> None:
 
 
 def section_kpi_table(clean: pd.DataFrame) -> None:
-    st.subheader("Portfolio Snapshot")
+    st.subheader("Executive KPI Highlights")
     metrics = {
         "Total Customers": f"{len(clean):,}",
         "Churn Rate": f"{clean['churned'].mean() * 100:.1f}%",
