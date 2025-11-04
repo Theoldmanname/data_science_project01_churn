@@ -254,7 +254,7 @@ def main() -> None:
     st.markdown("---")
     st.markdown(
         "Built with ❤️ using Streamlit. Source notebooks and full case study: "
-        "[GitHub Repository](https://github.com/your-username/your-repo)."
+        "[GitHub Repository](https://github.com/Theoldmanname/data_science_project01_churn)."
     )
 
 
