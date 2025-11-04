@@ -209,18 +209,14 @@ def section_segments(segmented: pd.DataFrame, summary: pd.DataFrame) -> None:
 def section_resources() -> None:
     st.subheader("Reports & Downloads")
     blob_base = f"{REPO_URL}/blob/{REPO_BRANCH}/{REPO_SUBDIR}"
-    raw_base = (
-        "https://raw.githubusercontent.com/"
-        f"Theoldmanname/data_science_project01_churn/{REPO_BRANCH}/{REPO_SUBDIR}"
-    )
-    html_preview = "https://Theoldmanname.github.io/data_science_project01_churn/eda_report.html"
+    pages_base = "https://Theoldmanname.github.io/data_science_project01_churn"
 
     st.markdown(
         f"""
-        - [Insight Summary PDF]({raw_base}/reports/insight_summary.pdf)
-        - [EDA Profiling Report (download)]({raw_base}/reports/eda_report.html) | [View online]({html_preview})
-        - [Segment Summary CSV]({raw_base}/reports/segment_summary.csv)
-        - [Segmented Dataset]({raw_base}/data/processed/segmented.csv)
+        - [Insight Summary PDF]({pages_base}/insight_summary.pdf)
+        - [EDA Profiling Report (download)]({pages_base}/eda_report.html) | [View online]({pages_base}/eda_report.html)
+        - [Segment Summary CSV]({pages_base}/segment_summary.csv)
+        - [Segmented Dataset]({pages_base}/segmented.csv)
         - [GitHub Repository]({REPO_URL})
         """
     )

@@ -3,9 +3,9 @@
 > **Fast Links**
 > - **Live Dashboard:** https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app
 > - **Project Hub (GitHub Pages):** https://Theoldmanname.github.io/data_science_project01_churn/
-> - **Insight Summary PDF:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/reports/insight_summary.pdf
+> - **Insight Summary PDF:** https://Theoldmanname.github.io/data_science_project01_churn/insight_summary.pdf
 > - **LinkedIn Article:** https://www.linkedin.com/pulse/data-science-case-study-from-data-audit-decision-insights-*
-> - **Segmented Dataset:** https://raw.githubusercontent.com/Theoldmanname/data_science_project01_churn/master/data_science_project/data/processed/segmented.csv
+> - **Segmented Dataset:** https://Theoldmanname.github.io/data_science_project01_churn/segmented.csv
 > - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Theoldmanname/data_science_project01_churn/HEAD?labpath=data_science_project%2Fnotebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/03_eda_descriptive.ipynb)
 
 ## Problem Context
