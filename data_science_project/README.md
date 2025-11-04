@@ -9,26 +9,25 @@
 > - [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Theoldmanname/data_science_project01_churn/HEAD?labpath=data_science_project%2Fnotebooks%2F03_eda_descriptive.ipynb) &nbsp; [View on nbviewer](https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/03_eda_descriptive.ipynb)
 
 ## Problem Context
-Zimbabwean telecom operator facing multi-faceted churn risk across digital and support channels. Goal: audit data assets, understand churn drivers, segment the base, and deliver an actionable retention playbook.
+I analysed a nationwide Zimbabwean telecom subscriber base to understand churn and monetisation levers. The project documents how I audited raw feeds, engineered reliable data assets, and built an executive-ready retention story.
 
 ## Data Sources
-- `data/raw/training_master_dataset.csv` – 20k subscriber-level records (demographics, billing, usage, sentiment, credit posture, churn flags).
-- Processed assets in `data/processed/` (cleaned dataset, propensity scores, clustering labels, pilot targets).
+- `data/raw/training_master_dataset.csv`: 20k subscriber-level records covering demographics, billing, usage, sentiment, credit posture, and churn outcomes.
+- Processed artefacts in `data/processed/` store my cleaned dataset, churn propensity scores, cluster labels, and pilot targeting files.
 
-## What Was Done
-1. **Phase 1-2** – Repo scaffolding, data card, Pandera contract, profiling.
-2. **Phase 3** – Cleaning, imputation, consistency checks, feature engineering.
-3. **Phase 4-5** – Exploratory analysis, statistical testing (chi-square, ANOVA, correlations).
-4. **Phase 6** – Propensity scoring, clustering personas, retention segmentation.
-5. **Phase 7-8** – Plotly dashboard, executive PDF, LinkedIn-ready story, recommendations.
-6. **Phase 9** – Reproducibility polish (requirements, validation notebook, README update).
+## What I Did
+1. **Phase 1-2** – Structured the repository, authored the data card, and locked schema expectations with Pandera plus automated profiling.
+2. **Phase 3** – Cleaned the feed, imputed targeted attributes, enforced consistency checks, and engineered modelling features.
+3. **Phase 4-5** – Ran exploratory analysis and statistical tests (chi-square, ANOVA, correlation CIs) to quantify churn drivers.
+4. **Phase 6** – Built churn propensity scores, performed customer clustering, and designed retention segments.
+5. **Phase 7-8** – Crafted the Plotly/Streamlit dashboard, packaged insights in an executive PDF, and wrote the LinkedIn case study.
+6. **Phase 9** – Finalised reproducibility (requirements file, validation notebook, documentation polish).
 
-## Main Insights
-- App adoption cuts churn from 33.7% to 23.0%; support-heavy cohorts churn ~50% more.
-- 5.5k customers fall into high-risk retention segments combining support load and low app usage.
-- Premium Data Power Users (19%) deliver the highest ARPU/spend ($70+ next month) yet remain moderate churn risk—protect with concierge incentives.
-- Matabeleland North & Manicaland show hotspot churn requiring localized action.
-
+## Key Insights
+- Mobile app adoption drops churn from 33.7% to 23.0%, while support-heavy cohorts churn about 50% more.
+- 5.5k customers fall into high-risk segments defined by heavy support needs and low digital adoption.
+- Premium Data Power Users (19% of the base) forecast $70+ in monthly spend yet sit at moderate churn risk, warranting loyalty perks.
+- Matabeleland North and Manicaland exhibit hotspot churn requiring provincial retention squads.
 
 ## Repository Structure
 ```
@@ -36,12 +35,12 @@ data_science_project/
 |-- README.md
 |-- requirements.txt
 |-- data/
-|   |-- raw/                       # raw training dataset
-|   `-- processed/                 # cleaned, scored, segmented assets
+|   |-- raw/
+|   `-- processed/
 |-- notebooks/
-|   |-- 01_data_dictionary.ipynb   # data dictionary & definitions
-|   |-- 02_data_quality.ipynb      # schema validation / quality CI
-|   |-- 03_eda_descriptive.ipynb   # exploratory visuals + narrative
+|   |-- 01_data_dictionary.ipynb
+|   |-- 02_data_quality.ipynb
+|   |-- 03_eda_descriptive.ipynb
 |   |-- 04_statistical_analysis.ipynb
 |   |-- 05_segmentation_profiles.ipynb
 |   `-- 06_dashboard_reporting.ipynb
@@ -49,23 +48,20 @@ data_science_project/
 |   |-- data_card.md
 |   |-- eda_report.html
 |   |-- segment_summary.csv
-|   |--linkedin_article.md
+|   |-- linkedin_article.md
 |   `-- insight_summary.pdf
 |-- src/
-|   |-- models/                    # driver experiments, pipelines
-|   `-- utils/                     # io, plotting, stats helpers
+|   |-- models/
+|   `-- utils/
 ```
 
-## Reproducibility
-- Python 3.10+ with dependencies in `requirements.txt`.
-- Run `pip install -r requirements.txt`.
-- Validate schema via `notebooks/02_data_quality.ipynb` (suitable for CI).
-- Clean dataset generated through `src/pipelines/preprocessing.py`.
-- Ready-to-launch steps documented in [`DEPLOYMENT_CHECKLIST.md`](DEPLOYMENT_CHECKLIST.md).
+## Reproducibility Notes
+- I developed against Python 3.10+ with dependencies captured in `requirements.txt`.
+- Install with `pip install -r requirements.txt` and validate schema via `notebooks/02_data_quality.ipynb`.
+- I regenerate the clean dataset via `src/pipelines/preprocessing.py`; deployment notes live in [`DEPLOYMENT_CHECKLIST.md`](DEPLOYMENT_CHECKLIST.md).
 
-## How to Reproduce
-1. `python -m venv .venv && .venv\\Scripts\\activate` (Windows) or `source .venv/bin/activate`.  
-2. `pip install -r requirements.txt`.  
-3. Execute notebooks in order (`01` â†’ `06`) or run scripts in `src/` for automation (`python src/pipelines/preprocessing.py`).  
-4. For clustering/retention scores run `python src/models/driver_experiments.py` and the segmentation notebook.  
-5. Review final assets: dashboard notebook, `reports/insight_summary.pdf`, and `reports/linkedin_article.md`.
+## Re-running the Analysis
+1. Create a virtual environment (`python -m venv .venv`) and activate it.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Execute notebooks sequentially or run the scripts in `src/` for automation (`python src/pipelines/preprocessing.py`, `python src/models/driver_experiments.py`).
+4. Review the final assets: dashboard notebook, `reports/insight_summary.pdf`, and `reports/linkedin_article.md`.

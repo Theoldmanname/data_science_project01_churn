@@ -1,4 +1,4 @@
-# Data Science Case Study: From Data Audit to Decision Insights
+﻿# Data Science Case Study: From Data Audit to Decision Insights
 
 **TL;DR (Executive Summary)**  
 - Audited and cleaned a 20k-row telecom dataset, uplifting data trust and documentation from scratch.  
@@ -64,3 +64,4 @@ An insight PDF distills the narrative: 5-line TL;DR, thematic insights, embedded
 - **Segmented Dataset:** `data/processed/segmented.csv` (clusters + propensity + recommended actions)
 
 Let’s connect if you’d like a live walkthrough or to adapt this approach to your customer base.
+
