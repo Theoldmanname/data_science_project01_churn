@@ -2,122 +2,420 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Telecom Retention Case Study</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="I engineered a telecom retention case study that spans data contracts, exploratory analytics, statistical testing, segmentation, and an executive-ready dashboard."
+    />
+    <title>Telecom Retention Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        max-width: 960px;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-        line-height: 1.6;
-        color: #1f2933;
+      :root {
+        color-scheme: light dark;
       }
-      h1 {
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(120% 120% at 0% 0%, #f8fbff 0%, #ecf1ff 45%, #f6f7fb 100%);
+        color: #0f172a;
+        overflow-x: hidden;
+        letter-spacing: -0.01em;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: -20vh -20vw auto auto;
+        width: clamp(220px, 40vw, 420px);
+        height: clamp(220px, 40vw, 420px);
+        background: radial-gradient(circle at center, rgba(59, 130, 246, 0.14), transparent 70%);
+        filter: blur(4px);
+        z-index: -1;
+        animation: float 14s ease-in-out infinite alternate;
+      }
+      header {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.95), rgba(37, 87, 167, 0.95));
+        color: #fff;
+        padding: clamp(3rem, 8vw, 6rem) 1.5rem;
         text-align: center;
-        margin-bottom: 1.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+          radial-gradient(circle at 80% 0%, rgba(37, 99, 235, 0.35), transparent 60%);
+        pointer-events: none;
+      }
+      header h1 {
+        font-size: clamp(2.5rem, 8vw, 3.5rem);
+        margin: 0 0 1rem;
+        position: relative;
+        z-index: 1;
+      }
+      header p {
+        margin: 0 auto 2rem;
+        max-width: 680px;
+        font-size: clamp(1.05rem, 3.4vw, 1.2rem);
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.88);
+        position: relative;
+        z-index: 1;
       }
       .cta {
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
-        margin-bottom: 2rem;
+        position: relative;
+        z-index: 1;
       }
       .cta a {
-        background: #0d6efd;
-        color: #fff;
-        padding: 0.75rem 1.25rem;
-        border-radius: 6px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem 1.75rem;
+        border-radius: 9999px;
         text-decoration: none;
-        transition: background 0.2s ease-in-out;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .cta a.primary {
+        background: #fff;
+        color: #0f172a;
+        box-shadow: 0 18px 40px -20px rgba(15, 23, 42, 0.75);
       }
       .cta a.secondary {
-        background: #f1f5f9;
-        color: #0d1b2a;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        color: #f8fafc;
       }
       .cta a:hover {
-        background: #0b5ed7;
+        transform: translateY(-2px);
+        box-shadow: 0 24px 45px -20px rgba(15, 23, 42, 0.6);
       }
-      section {
-        margin-bottom: 2rem;
+      main {
+        max-width: min(1024px, 92vw);
+        margin: -4rem auto 3rem;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        background: rgba(255, 255, 255, 0.82);
+        backdrop-filter: blur(18px);
+        border-radius: 24px;
+        box-shadow: 0 28px 70px -50px rgba(15, 23, 42, 0.8);
+        position: relative;
+        overflow: hidden;
+      }
+      main::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.08), transparent 55%),
+          radial-gradient(circle at 85% 25%, rgba(14, 165, 233, 0.08), transparent 60%);
+        pointer-events: none;
+      }
+      .section-title {
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: #0f172a;
+      }
+      .summary {
+        display: grid;
+        gap: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .summary p {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: #1f2a44;
+      }
+      .highlight-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .highlight-card {
+        background: linear-gradient(160deg, rgba(59, 130, 246, 0.11), rgba(37, 99, 235, 0.05));
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 18px;
+        padding: 1.4rem;
+        box-shadow: 0 22px 40px -32px rgba(37, 99, 235, 0.6);
+        display: grid;
+        gap: 0.35rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .highlight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 30px 55px -34px rgba(37, 99, 235, 0.55);
+      }
+      .highlight-card .eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: rgba(15, 23, 42, 0.65);
+      }
+      .highlight-card h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        color: #0f172a;
+      }
+      .highlight-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #1f2a44;
+      }
+      .cards {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+      .card {
+        background: #fff;
+        border-radius: 20px;
+        padding: clamp(1.35rem, 3vw, 1.75rem);
+        box-shadow: 0 18px 45px -30px rgba(15, 23, 42, 0.45);
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 28px 50px -28px rgba(15, 23, 42, 0.38);
+      }
+      .card h3 {
+        margin-top: 0;
+        font-size: 1.15rem;
+        margin-bottom: 0.7rem;
+        color: #111c36;
+      }
+      .card p,
+      .card li {
+        color: #384860;
+        font-size: 0.97rem;
+        line-height: 1.6;
+      }
+      .card a {
+        display: inline-block;
+        margin-top: 0.9rem;
+        font-weight: 600;
+        color: #2563eb;
+        text-decoration: none;
+      }
+      .card a:hover {
+        text-decoration: underline;
+      }
+      .storyline {
+        margin-top: 2.5rem;
+        display: grid;
+        gap: 1.2rem;
+        position: relative;
+        z-index: 1;
+      }
+      .storyline p {
+        margin: 0;
+        color: #1f2a44;
+        font-size: 1.02rem;
+        line-height: 1.7;
+      }
+      .story-points {
+        display: grid;
+        gap: 1rem;
+      }
+      .story-point {
+        padding: 1.1rem 1.35rem;
+        border-radius: 16px;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 20px 36px -32px rgba(15, 23, 42, 0.6);
+      }
+      .story-point strong {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-size: 0.98rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(15, 23, 42, 0.75);
       }
       footer {
         text-align: center;
-        font-size: 0.875rem;
-        color: #52606d;
+        padding: 3rem 1rem 2rem;
+        font-size: 0.9rem;
+        color: rgba(15, 23, 42, 0.6);
+      }
+      footer a {
+        color: #2563eb;
+        text-decoration: none;
+      }
+      @keyframes float {
+        from {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        to {
+          transform: translate3d(10px, -10px, 0) scale(1.08);
+        }
+      }
+      @media (max-width: 640px) {
+        header {
+          padding-bottom: 3.5rem;
+        }
+        .cta a {
+          width: 100%;
+        }
+        main {
+          margin-top: -3rem;
+          padding: 1.5rem;
+        }
+        .highlight-card {
+          padding: 1.2rem;
+        }
+      }
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 2.25rem;
+        }
+        header p {
+          font-size: 1rem;
+        }
+        .card {
+          padding: 1.25rem;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Telecom Retention Case Study</h1>
-    <div class="cta">
-      <a
-        href="https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Open Interactive Dashboard
-      </a>
-      <a href="eda_report.html" class="secondary">
-        View Automated EDA Report
-      </a>
-      <a
-        href="insight_summary.pdf"
-        class="secondary"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Download Executive PDF
-      </a>
-    </div>
-
-    <section>
-      <h2>Summary</h2>
+    <header>
+      <h1>Telecom Retention Case Study</h1>
       <p>
-        This project demonstrates a full-stack data science workflow—from data
-        contracts and data quality, through cleaning, exploratory analysis,
-        statistical testing, clustering, and retention propensity scoring, to
-        executive storytelling. Use the links above to explore the Streamlit
-        dashboard and automated EDA report.
+        I built a full-stack retention engine: automated quality controls, exploratory analytics, statistical testing,
+        clustering, and an executive dashboard that turns insights into action.
       </p>
-    </section>
+      <div class="cta">
+        <a
+          class="primary"
+          href="https://datascienceproject01churn-87qsxh7zalazvu6bvwnyg7.streamlit.app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Launch Interactive Dashboard
+        </a>
+        <a class="secondary" href="eda_report.html">
+          Automated EDA Report
+        </a>
+        <a class="secondary" href="insight_summary.pdf" target="_blank" rel="noopener noreferrer">
+          Executive Insight PDF
+        </a>
+      </div>
+    </header>
 
-    <section>
-      <h2>Key Assets</h2>
-      <ul>
-        <li>
-          <a
-            href="segmented.csv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Segmented dataset (clusters + propensity scores)
-          </a>
-        </li>
-        <li>
-          <a
-            href="segment_summary.csv"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cluster summary table
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://github.com/Theoldmanname/data_science_project01_churn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub repository
-          </a>
-        </li>
-      </ul>
-    </section>
+    <main>
+      <section class="summary">
+        <h2 class="section-title">Summary</h2>
+        <p>
+          I built this case study to demonstrate a boardroom-ready retention toolkit. Every deliverable flows from a
+          signed-off data contract into profiling, data quality automation, statistical inference, segmentation, and a
+          living dashboard. Recruiters and stakeholders can stress-test the approach directly from this hub.
+        </p>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <span class="eyebrow">Data Foundations</span>
+            <h3>Auditable and Trusted</h3>
+            <p>
+              I documented lineage, validated schema with Pandera, and enforced quality gates before any modelling or
+              storytelling took place.
+            </p>
+          </article>
+          <article class="highlight-card">
+            <span class="eyebrow">Analytics Engine</span>
+            <h3>Story-Driven EDA</h3>
+            <p>
+              The notebooks move from descriptive analytics to inference, quantifying support load and app adoption as
+              real levers on churn risk.
+            </p>
+          </article>
+          <article class="highlight-card">
+            <span class="eyebrow">Activation</span>
+            <h3>Actionable Personas</h3>
+            <p>
+              I fused segmentation, propensity scores, and KPI storytelling into an interactive Streamlit experience for
+              sales, care, and strategy teams.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Key Assets</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Segmented Dataset</h3>
+            <p>
+              Customer-level file enriched with churn scores, cluster personas, and recommended retention actions.
+            </p>
+            <a href="segmented.csv" target="_blank" rel="noopener noreferrer">Download segmented.csv</a>
+          </article>
+
+          <article class="card">
+            <h3>Cluster Summary</h3>
+            <p>
+              Aggregate view per persona with ARPU, engagement, support demand, and churn probability insights.
+            </p>
+            <a href="segment_summary.csv" target="_blank" rel="noopener noreferrer">Download segment_summary.csv</a>
+          </article>
+
+          <article class="card">
+            <h3>Source Repository</h3>
+            <p>
+              Full codebase including cleaning pipelines, statistical notebooks, cluster scripts, Streamlit app, and
+              documentation.
+            </p>
+            <a href="https://github.com/Theoldmanname/data_science_project01_churn" target="_blank" rel="noopener noreferrer">
+              View on GitHub
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="storyline">
+        <h2 class="section-title">End-to-End Narrative</h2>
+        <p>
+          From the first data audit to executive recommendations, I stitched every phase together so decision-makers can
+          trace insights back to governed, well-documented steps.
+        </p>
+        <div class="story-points">
+          <div class="story-point">
+            <strong>01 | Align</strong>
+            I mapped business questions to data availability, wrote the data card, and locked quality expectations in a
+            Pandera contract.
+          </div>
+          <div class="story-point">
+            <strong>02 | Explore</strong>
+            I profiled distributions, quantified missingness, and surfaced churn drivers with statistical testing and
+            scenario-ready visuals.
+          </div>
+          <div class="story-point">
+            <strong>03 | Activate</strong>
+            I productionised the clean dataset, scored clusters, and delivered a Streamlit control tower with direct
+            downloads for analysts and executives.
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
-      Built with Streamlit &middot; GitHub Pages &middot; Pandera · Plotly
+      Curated by Theoldmanname | Streamlit | Plotly | Pandera | GitHub Pages
     </footer>
   </body>
 </html>
