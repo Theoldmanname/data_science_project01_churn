@@ -217,6 +217,75 @@
       .card a:hover {
         text-decoration: underline;
       }
+      .notebook-grid {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        margin-top: 1.25rem;
+      }
+      .notebook-card {
+        background: linear-gradient(155deg, rgba(14, 165, 233, 0.12), rgba(59, 130, 246, 0.05));
+        border: 1px solid rgba(37, 99, 235, 0.18);
+        border-radius: 20px;
+        padding: clamp(1.35rem, 3vw, 1.75rem);
+        box-shadow: 0 24px 50px -36px rgba(37, 99, 235, 0.6);
+        display: grid;
+        gap: 0.75rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .notebook-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 34px 55px -34px rgba(37, 99, 235, 0.55);
+      }
+      .notebook-card h3 {
+        margin: 0;
+        font-size: 1.12rem;
+        color: #0f172a;
+      }
+      .notebook-card p {
+        margin: 0;
+        font-size: 0.98rem;
+        line-height: 1.6;
+        color: #1f2a44;
+      }
+      .notebook-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .notebook-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.65rem 1.2rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        border: 1px solid rgba(37, 99, 235, 0.35);
+        color: #1d4ed8;
+        background: rgba(255, 255, 255, 0.86);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+      .notebook-links a:hover {
+        background: rgba(37, 99, 235, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 18px 28px -24px rgba(37, 99, 235, 0.6);
+      }
+      .notebook-note {
+        margin-top: 1.3rem;
+        font-size: 0.95rem;
+        color: #1f2a44;
+        text-align: center;
+      }
+      .notebook-note a {
+        color: #2563eb;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .notebook-note a:hover {
+        text-decoration: underline;
+      }
       .storyline {
         margin-top: 2.5rem;
         display: grid;
@@ -326,7 +395,7 @@
         <p>
           I built this case study to demonstrate a boardroom-ready retention toolkit. Every deliverable flows from a
           signed-off data contract into profiling, data quality automation, statistical inference, segmentation, and a
-          living dashboard. Recruiters and stakeholders can stress-test the approach directly from this hub.
+          living dashboard. You can stress-test the approach directly from this hub.
         </p>
         <div class="highlight-grid">
           <article class="highlight-card">
@@ -386,6 +455,95 @@
             </a>
           </article>
         </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Flagship Notebooks</h2>
+        <p>
+          These notebooks carry the narrative from exploration to activation. I published nbviewer links so reviewers can
+          walk through the storytelling without cloning the repository.
+        </p>
+        <div class="notebook-grid">
+          <article class="notebook-card">
+            <h3>Exploratory Narrative (03)</h3>
+            <p>
+              I cover descriptive statistics, churn diagnostics, and the visual framing that powers the dashboard.
+            </p>
+            <div class="notebook-links">
+              <a
+                href="https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/03_eda_descriptive.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on nbviewer
+              </a>
+              <a
+                href="https://github.com/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/03_eda_descriptive.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </article>
+          <article class="notebook-card">
+            <h3>Statistical Inference (04)</h3>
+            <p>
+              I quantify churn drivers through hypothesis testing, effect sizes, and practical retention implications.
+            </p>
+            <div class="notebook-links">
+              <a
+                href="https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/04_statistical_analysis.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on nbviewer
+              </a>
+              <a
+                href="https://github.com/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/04_statistical_analysis.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </article>
+          <article class="notebook-card">
+            <h3>Segmentation Blueprint (05)</h3>
+            <p>
+              I sequence clustering, persona profiling, and activation scoring that feeds the executive dashboard and
+              pilot playbooks.
+            </p>
+            <div class="notebook-links">
+              <a
+                href="https://nbviewer.org/github/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/05_segmentation_profiles.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on nbviewer
+              </a>
+              <a
+                href="https://github.com/Theoldmanname/data_science_project01_churn/blob/master/data_science_project/notebooks/05_segmentation_profiles.ipynb"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </article>
+        </div>
+        <p class="notebook-note">
+          Interested in the data contracts, cleaning pipelines, or dashboard engineering notebooks? Explore the full
+          collection on
+          <a
+            href="https://github.com/Theoldmanname/data_science_project01_churn/tree/master/data_science_project/notebooks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          .
+        </p>
       </section>
 
       <section class="storyline">
