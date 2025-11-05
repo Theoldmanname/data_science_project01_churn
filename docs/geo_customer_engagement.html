@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_66fb6afb047648f99203df7dde521d1e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_66fb6afb047648f99203df7dde521d1e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_66fb6afb047648f99203df7dde521d1e = L.map(
+                "map_66fb6afb047648f99203df7dde521d1e",
+                {
+                    center: [-18.879942855, 30.314069560000004],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_74c52447176a01693e849de145018bff = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_74c52447176a01693e849de145018bff.addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+            var circle_marker_ba51ae4700b3fd29baee1f9ec45bfa48 = L.circleMarker(
+                [-20.4335, 28.6515],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.49, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_cbe34c3548c1feb40df2808a6ea969a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ef5442f39cdbabf6e76ef8febb4a965e = $(`<div id="html_ef5442f39cdbabf6e76ef8febb4a965e" style="width: 100.0%; height: 100.0%;"><b>Bulawayo</b><br>Customers: 1,992<br>Churn rate: 25.6%<br>Avg spend: <br>Engagement: 35.0</div>`)[0];
+                popup_cbe34c3548c1feb40df2808a6ea969a3.setContent(html_ef5442f39cdbabf6e76ef8febb4a965e);
+            
+        
+
+        circle_marker_ba51ae4700b3fd29baee1f9ec45bfa48.bindPopup(popup_cbe34c3548c1feb40df2808a6ea969a3)
+        ;
+
+        
+    
+    
+            var circle_marker_53b64c9bd04a1865c061e2eccba446f5 = L.circleMarker(
+                [-17.6617, 30.8525],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.60625, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_825e0d2a37ee33d4af401fa00e944532 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_069f40633de60782aee15ed909e72654 = $(`<div id="html_069f40633de60782aee15ed909e72654" style="width: 100.0%; height: 100.0%;"><b>Harare</b><br>Customers: 2,085<br>Churn rate: 24.8%<br>Avg spend: <br>Engagement: 35.1</div>`)[0];
+                popup_825e0d2a37ee33d4af401fa00e944532.setContent(html_069f40633de60782aee15ed909e72654);
+            
+        
+
+        circle_marker_53b64c9bd04a1865c061e2eccba446f5.bindPopup(popup_825e0d2a37ee33d4af401fa00e944532)
+        ;
+
+        
+    
+    
+            var circle_marker_28a5a83dd0b8854d806f61d34f707f83 = L.circleMarker(
+                [-19.0543, 32.5927],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.4712499999999995, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_9fd81d84b6de2bd9cf2f21d9db406ebf = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cc648289694b8c0a9aa6dff425b3a48 = $(`<div id="html_6cc648289694b8c0a9aa6dff425b3a48" style="width: 100.0%; height: 100.0%;"><b>Manicaland</b><br>Customers: 1,977<br>Churn rate: 26.2%<br>Avg spend: <br>Engagement: 35.4</div>`)[0];
+                popup_9fd81d84b6de2bd9cf2f21d9db406ebf.setContent(html_6cc648289694b8c0a9aa6dff425b3a48);
+            
+        
+
+        circle_marker_28a5a83dd0b8854d806f61d34f707f83.bindPopup(popup_9fd81d84b6de2bd9cf2f21d9db406ebf)
+        ;
+
+        
+    
+    
+            var circle_marker_9fef3cf4baf15fea77791feac012cffc = L.circleMarker(
+                [-16.604, 30.8052],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.41375, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_3039cfb23ea44456306dd3d0e6eb757f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bdd6e4f5c1dbcf67d4f7252e4658a4ee = $(`<div id="html_bdd6e4f5c1dbcf67d4f7252e4658a4ee" style="width: 100.0%; height: 100.0%;"><b>Mashonaland Central</b><br>Customers: 1,931<br>Churn rate: 25.7%<br>Avg spend: <br>Engagement: 35.2</div>`)[0];
+                popup_3039cfb23ea44456306dd3d0e6eb757f.setContent(html_bdd6e4f5c1dbcf67d4f7252e4658a4ee);
+            
+        
+
+        circle_marker_9fef3cf4baf15fea77791feac012cffc.bindPopup(popup_3039cfb23ea44456306dd3d0e6eb757f)
+        ;
+
+        
+    
+    
+            var circle_marker_9dcea8834ef90e3aba7e745151ecf2ef = L.circleMarker(
+                [-18.5853, 32.4465],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.55125, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_b65ce1e295fc4afb5a4c2ad4fa4352fd = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f9d11b8efe812be4675ca5f7eead2548 = $(`<div id="html_f9d11b8efe812be4675ca5f7eead2548" style="width: 100.0%; height: 100.0%;"><b>Mashonaland East</b><br>Customers: 2,041<br>Churn rate: 25.0%<br>Avg spend: <br>Engagement: 34.9</div>`)[0];
+                popup_b65ce1e295fc4afb5a4c2ad4fa4352fd.setContent(html_f9d11b8efe812be4675ca5f7eead2548);
+            
+        
+
+        circle_marker_9dcea8834ef90e3aba7e745151ecf2ef.bindPopup(popup_b65ce1e295fc4afb5a4c2ad4fa4352fd)
+        ;
+
+        
+    
+    
+            var circle_marker_e12a66b49c6a188aa2b7c75feccd123e = L.circleMarker(
+                [-17.2211, 30.1817],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.5375, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_d6d258b36c3369418fbd37815e5aad30 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9f95f419eb4c8878879066cb8f21a33 = $(`<div id="html_d9f95f419eb4c8878879066cb8f21a33" style="width: 100.0%; height: 100.0%;"><b>Mashonaland West</b><br>Customers: 2,030<br>Churn rate: 24.2%<br>Avg spend: <br>Engagement: 35.2</div>`)[0];
+                popup_d6d258b36c3369418fbd37815e5aad30.setContent(html_d9f95f419eb4c8878879066cb8f21a33);
+            
+        
+
+        circle_marker_e12a66b49c6a188aa2b7c75feccd123e.bindPopup(popup_d6d258b36c3369418fbd37815e5aad30)
+        ;
+
+        
+    
+    
+            var circle_marker_79c8b88184d0364cd0528dd4ae6c6e4f = L.circleMarker(
+                [-20.5122, 30.8098],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.525, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_854a613d3024184947c7870b4252d7bb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07fd28de7811e3aa39ca1ae684b1e720 = $(`<div id="html_07fd28de7811e3aa39ca1ae684b1e720" style="width: 100.0%; height: 100.0%;"><b>Masvingo</b><br>Customers: 2,020<br>Churn rate: 25.4%<br>Avg spend: <br>Engagement: 35.1</div>`)[0];
+                popup_854a613d3024184947c7870b4252d7bb.setContent(html_07fd28de7811e3aa39ca1ae684b1e720);
+            
+        
+
+        circle_marker_79c8b88184d0364cd0528dd4ae6c6e4f.bindPopup(popup_854a613d3024184947c7870b4252d7bb)
+        ;
+
+        
+    
+    
+            var circle_marker_5bf421154c3f1fce7b9aca2ed8a544a3 = L.circleMarker(
+                [-18.6203, 27.6337],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.45125, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_8d3a6cb5a6d98076d6eb1a4841b91623 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06b9e4ce652bdba74d56643c5e5b76a2 = $(`<div id="html_06b9e4ce652bdba74d56643c5e5b76a2" style="width: 100.0%; height: 100.0%;"><b>Matabeleland North</b><br>Customers: 1,961<br>Churn rate: 25.7%<br>Avg spend: <br>Engagement: 35.3</div>`)[0];
+                popup_8d3a6cb5a6d98076d6eb1a4841b91623.setContent(html_06b9e4ce652bdba74d56643c5e5b76a2);
+            
+        
+
+        circle_marker_5bf421154c3f1fce7b9aca2ed8a544a3.bindPopup(popup_8d3a6cb5a6d98076d6eb1a4841b91623)
+        ;
+
+        
+    
+    
+            var circle_marker_b8611448b5bf93df6f5a194894c733e2 = L.circleMarker(
+                [-21.1215, 29.1469],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.4925, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_a0057387bdb38b3ef21e1791e2c706be = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a864a316e5875fb0c80a7e8feefd1653 = $(`<div id="html_a864a316e5875fb0c80a7e8feefd1653" style="width: 100.0%; height: 100.0%;"><b>Matabeleland South</b><br>Customers: 1,994<br>Churn rate: 25.7%<br>Avg spend: <br>Engagement: 35.1</div>`)[0];
+                popup_a0057387bdb38b3ef21e1791e2c706be.setContent(html_a864a316e5875fb0c80a7e8feefd1653);
+            
+        
+
+        circle_marker_b8611448b5bf93df6f5a194894c733e2.bindPopup(popup_a0057387bdb38b3ef21e1791e2c706be)
+        ;
+
+        
+    
+    
+            var circle_marker_59fa00d37ff05ad7483ea0195a82be8c = L.circleMarker(
+                [-19.3868, 30.012],
+                {"bubblingMouseEvents": true, "color": "#0d6efd", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0d6efd", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.46125, "stroke": true, "weight": 1}
+            ).addTo(map_66fb6afb047648f99203df7dde521d1e);
+        
+    
+        var popup_32ae39865895f19a362d48ad69bfd974 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3227b96a35b260b86c54c76d805fe2d9 = $(`<div id="html_3227b96a35b260b86c54c76d805fe2d9" style="width: 100.0%; height: 100.0%;"><b>Midlands</b><br>Customers: 1,969<br>Churn rate: 25.6%<br>Avg spend: <br>Engagement: 35.2</div>`)[0];
+                popup_32ae39865895f19a362d48ad69bfd974.setContent(html_3227b96a35b260b86c54c76d805fe2d9);
+            
+        
+
+        circle_marker_59fa00d37ff05ad7483ea0195a82be8c.bindPopup(popup_32ae39865895f19a362d48ad69bfd974)
+        ;
+
+        
+    
+</script>
+</html>
