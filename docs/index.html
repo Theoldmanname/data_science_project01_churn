@@ -102,12 +102,11 @@
         background-size: 200% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: gradientFlow 8s ease-in-out infinite;
         text-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);
         opacity: 0;
         transform: translateY(30%);
         animation: roleFade 3s infinite cubic-bezier(0.4, 0.0, 0.2, 1) var(--delay, 0s),
-          gradientFlow 6s ease-in-out infinite;
+          gradientFlow 6s ease-in-out infinite var(--delay, 0s);
       }
       .hero-roles span:nth-child(2) {
         --delay: 1s;
