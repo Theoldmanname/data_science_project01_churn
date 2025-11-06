@@ -49,6 +49,15 @@
         color: #fff;
         position: relative;
         overflow: hidden;
+        position: relative;
+        transition: box-shadow 0.25s ease, transform 0.25s ease;
+      }
+      header.is-sticky {
+        position: sticky;
+        top: 0;
+        box-shadow: 0 14px 38px -24px rgba(15, 23, 42, 0.58);
+        transform: translateZ(0);
+        z-index: 10;
       }
       header::after {
         content: "";
@@ -213,5 +222,26 @@
         .
       </footer>
     </div>
+    <script>
+      (function () {
+        const header = document.querySelector("header");
+        let lastScrollY = window.scrollY;
+
+        const toggleSticky = () => {
+          const currentY = window.scrollY;
+          const scrollingUp = currentY < lastScrollY;
+          if (scrollingUp && currentY > 0) {
+            header.classList.add("is-sticky");
+          } else if (currentY === 0) {
+            header.classList.remove("is-sticky");
+          } else if (!scrollingUp) {
+            header.classList.remove("is-sticky");
+          }
+          lastScrollY = currentY;
+        };
+
+        window.addEventListener("scroll", toggleSticky, { passive: true });
+      })();
+    </script>
   </body>
 </html>
